@@ -1,6 +1,5 @@
 package com.stan.activiti.activitidemo;
 
-import lombok.extern.slf4j.Slf4j;
 import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.model.ProcessInstance;
 import org.activiti.api.process.model.builders.ProcessPayloadBuilder;
@@ -12,6 +11,8 @@ import org.activiti.api.runtime.shared.query.Page;
 import org.activiti.api.runtime.shared.query.Pageable;
 import org.activiti.api.task.runtime.TaskRuntime;
 import org.activiti.api.task.runtime.events.listener.TaskRuntimeEventListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,10 +26,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
-@Slf4j
 @SpringBootApplication
 @EnableScheduling
 public class ActivitiDemoApplication implements CommandLineRunner {
+    private final Logger log = LoggerFactory.getLogger(ActivitiDemoApplication.class);
 
     @Autowired
     private ProcessRuntime processRuntime;
