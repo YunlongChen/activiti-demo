@@ -1,15 +1,11 @@
 package com.stan.activiti.activitidemo;
 
-import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.model.ProcessInstance;
 import org.activiti.api.process.model.builders.ProcessPayloadBuilder;
 import org.activiti.api.process.runtime.ProcessRuntime;
 import org.activiti.api.process.runtime.connector.Connector;
 import org.activiti.api.process.runtime.events.ProcessCompletedEvent;
 import org.activiti.api.process.runtime.events.listener.ProcessRuntimeEventListener;
-import org.activiti.api.runtime.shared.query.Page;
-import org.activiti.api.runtime.shared.query.Pageable;
-import org.activiti.api.task.runtime.TaskRuntime;
 import org.activiti.api.task.runtime.events.listener.TaskRuntimeEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,11 +52,11 @@ public class ActivitiDemoApplication implements CommandLineRunner {
     public void run(String... args) {
         securityUtil.logInAs("system");
 
-        Page<ProcessDefinition> processDefinitionPage = processRuntime.processDefinitions(Pageable.of(0, 10));
-        log.info("> Available Process definitions: " + processDefinitionPage.getTotalItems());
-        for (ProcessDefinition definition : processDefinitionPage.getContent()) {
-            log.info("\t > Process definition: " + definition);
-        }
+//        Page<ProcessDefinition> processDefinitionPage = processRuntime.processDefinitions(SpringDataWebProperties.Pageable.of(0, 10));
+//        log.info("> Available Process definitions: " + processDefinitionPage.getTotalItems());
+//        for (ProcessDefinition definition : processDefinitionPage.getContent()) {
+//            log.info("\t > Process definition: " + definition);
+//        }
 
     }
 
