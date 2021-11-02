@@ -90,8 +90,7 @@ public class ActivitiDemoApplication implements CommandLineRunner {
             // Logic Here to decide if content is approved or not
             if (contentToProcess.contains("activiti")) {
                 log.info("> Approving content: " + contentToProcess);
-                integrationContext.addOutBoundVariable("approved",
-                        true);
+                integrationContext.addOutBoundVariable("approved", true);
             } else {
                 log.info("> Discarding content: " + contentToProcess);
                 integrationContext.addOutBoundVariable("approved", false);
@@ -105,8 +104,7 @@ public class ActivitiDemoApplication implements CommandLineRunner {
         return integrationContext -> {
             String contentToTag = (String) integrationContext.getInBoundVariables().get("content");
             contentToTag += " :) ";
-            integrationContext.addOutBoundVariable("content",
-                    contentToTag);
+            integrationContext.addOutBoundVariable("content", contentToTag);
             log.info("Final Content: " + contentToTag);
             return integrationContext;
         };
@@ -117,8 +115,7 @@ public class ActivitiDemoApplication implements CommandLineRunner {
         return integrationContext -> {
             String contentToDiscard = (String) integrationContext.getInBoundVariables().get("content");
             contentToDiscard += " :( ";
-            integrationContext.addOutBoundVariable("content",
-                    contentToDiscard);
+            integrationContext.addOutBoundVariable("content", contentToDiscard);
             log.info("Final Content: " + contentToDiscard);
             return integrationContext;
         };
