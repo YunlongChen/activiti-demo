@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
                   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
                   id="Definitions_0v7t65f" targetNamespace="http://bpmn.io/schema/bpmn">
@@ -9,17 +9,17 @@
             <bpmn:outgoing>SequenceFlow_09xowo4</bpmn:outgoing>
         </bpmn:startEvent>
         <bpmn:sequenceFlow id="SequenceFlow_09xowo4" sourceRef="StartEvent_1" targetRef="Task_1ylvdew"/>
-        <bpmn:exclusiveGateway id="ExclusiveGateway_0c36qc6" name="Content Accepted?">
+        <bpmn:exclusiveGateway id="ExclusiveGateway_0c36qc6" name="Content Accepted?" default="SequenceFlow_yes">
             <bpmn:incoming>SequenceFlow_1jzbgkj</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0tsc63v</bpmn:outgoing>
             <bpmn:outgoing>SequenceFlow_049fuit</bpmn:outgoing>
         </bpmn:exclusiveGateway>
         <bpmn:sequenceFlow id="SequenceFlow_1jzbgkj" sourceRef="Task_1ylvdew" targetRef="ExclusiveGateway_0c36qc6"/>
-        <bpmn:sequenceFlow id="SequenceFlow_0tsc63v" name="yes" sourceRef="ExclusiveGateway_0c36qc6"
+        <bpmn:sequenceFlow id="SequenceFlow_yes" name="yes" sourceRef="ExclusiveGateway_0c36qc6"
                            targetRef="Task_0snvh02">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved == true}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
-        <bpmn:sequenceFlow id="SequenceFlow_049fuit" name="no" sourceRef="ExclusiveGateway_0c36qc6"
+        <bpmn:sequenceFlow id="SequenceFlow_false" name="no" sourceRef="ExclusiveGateway_0c36qc6"
                            targetRef="Task_1asxw87">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved == false}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
@@ -55,29 +55,29 @@
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ExclusiveGateway_0c36qc6_di" bpmnElement="ExclusiveGateway_0c36qc6"
                               isMarkerVisible="true">
-                <dc:Bounds x="409" y="95" width="50" height="50"/>
+                <dc:Bounds x="409.0" y="95.0" width="50" height="50"/>
                 <bpmndi:BPMNLabel>
                     <dc:Bounds x="409" y="65" width="52" height="27"/>
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_1jzbgkj_di" bpmnElement="SequenceFlow_1jzbgkj">
                 <di:waypoint x="359" y="120"/>
-                <di:waypoint x="409" y="120"/>
+                <di:waypoint x="409.0" y="120.0"/>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge id="SequenceFlow_0tsc63v_di" bpmnElement="SequenceFlow_0tsc63v">
-                <di:waypoint x="459" y="120"/>
+            <bpmndi:BPMNEdge id="SequenceFlow_0tsc63v_di" bpmnElement="SequenceFlow_yes">
+                <di:waypoint x="459.0" y="120.0"/>
                 <di:waypoint x="509" y="120"/>
                 <bpmndi:BPMNLabel>
                     <dc:Bounds x="475" y="102" width="18" height="14"/>
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge id="SequenceFlow_049fuit_di" bpmnElement="SequenceFlow_049fuit">
-                <di:waypoint x="434" y="145"/>
-                <di:waypoint x="434" y="230"/>
-                <di:waypoint x="509" y="230"/>
+            <bpmndi:BPMNEdge id="SequenceFlow_049fuit_di" bpmnElement="SequenceFlow_false">
                 <bpmndi:BPMNLabel>
                     <dc:Bounds x="443" y="185" width="13" height="14"/>
                 </bpmndi:BPMNLabel>
+                <omgdi:waypoint xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" x="434.0" y="145.0"/>
+                <omgdi:waypoint xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" x="433.99997" y="230.0"/>
+                <omgdi:waypoint xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" x="509.0" y="230.0"/>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge id="SequenceFlow_0upfncf_di" bpmnElement="SequenceFlow_0upfncf">
                 <di:waypoint x="609" y="230"/>
